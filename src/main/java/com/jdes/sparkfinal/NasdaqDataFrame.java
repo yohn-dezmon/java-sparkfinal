@@ -32,7 +32,7 @@ public class NasdaqDataFrame {
 			return;
 		}
 		
-		// I need to understand what the config method does...
+		
 		SparkSession spark = SparkSession.builder().master("local").appName("Nasdaq Data").
 				config("some config", "value").getOrCreate();
 		
@@ -120,12 +120,10 @@ public class NasdaqDataFrame {
 			// filters out the bad date that I created in the todate udf
 			Dataset<Row> filtered = dateFormatted.filter(dateFormatted.col("date").startsWith("2018").or(dateFormatted.col("date").startsWith("2019")));
 			
-//			Dataset<Row> ordered = filtered.orderBy(filtered.col("date").asc());
-			// this prints out the first 20 rows of each table being processed for tracking purposes
-//			ordered.show();
+
 			
 			// local output: /home/vmuser/stockdata/joineddata/nasdaq
-//			 this saves individual parquet files into a folder, that can later be accessed as one dataframe
+			// this saves individual parquet files into a folder, that can later be accessed as one dataframe
 			filtered.write().mode(SaveMode.Append).parquet(output);
 
 		}
