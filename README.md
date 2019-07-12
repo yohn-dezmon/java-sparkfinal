@@ -14,17 +14,10 @@ Yahoo and Nasdaq are combined and used to calculate the running averages.
 I used parquet files to store the datasets, with the exception of the final  
 dataset stored as a CSV file as well to verify the correct output.
 
-## Sample of Yahoo Data After Processing:
-
-+----------+-------+-----+-----+-----+-----+--------+
-|      date|company| open|close| high|  low|  volume|  
-+----------+-------+-----+-----+-----+-----+--------+
-|2018-07-09|    HPQ|23.14|23.37|23.44|23.01| 7057100|  
-|2018-07-10|    HPQ|23.36|23.87|23.97|23.36|10481600|  
-|2018-07-11|    HPQ|23.65|23.06|23.71|23.05| 6833500|  
 
 ## Sample Output with Opening and Closing Price Moving Averages
-
+company-date----open--close--OpenMovingAvg---CloseMovingAvg--  
+  
 LYFT,2019-06-26,64.32,62.97,60.63161290322581,60.23951612903228  
 LYFT,2019-06-27,63.52,65.27,60.677460317460316,60.3193650793651  
 LYFT,2019-06-28,65.2,65.71,60.748124999999995,60.40359375000002  
